@@ -1,6 +1,6 @@
 import firebase from "./firebase";
 import { useState,useEffect } from "react";
-import { getDatabase,ref,push,set, onValue,query } from "firebase/database"
+import { getDatabase,ref,push,set, onValue,query, remove } from "firebase/database"
 export const addInfo=(info)=>{
     const db=getDatabase();
     const userRef=ref(db,"contact")
@@ -32,4 +32,10 @@ export const useFetch=()=>{
       })
     },[]);
     return {isLoading,contactList};
+}
+
+export const deleteInfo=(id)=>{
+    const db = getDatabase();
+      //const userRef = ref(db, 'contact');
+      remove(ref(db, "contact/"+ id))
 }
