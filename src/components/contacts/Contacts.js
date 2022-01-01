@@ -29,7 +29,35 @@ const Contacts = ({editHandler}) => {
               </Table.Cell>
             </Table.Row>
           ) :(
-            
+            contactList?.map((item, index) => (
+              <Table.Row key={index}>
+                <Table.Cell textAlign="center">
+                  {item.username.toUpperCase()}
+                </Table.Cell>
+                <Table.Cell textAlign="center">{item.phoneNumber}</Table.Cell>
+                <Table.Cell textAlign="center">{item.gender}</Table.Cell>
+                <Table.Cell
+                  textAlign="center"
+                  className="delete"
+                  onClick={() => deleteHandler(item.id)}
+                >
+                  <Icon name="delete" />
+                </Table.Cell>
+                <Table.Cell
+                  textAlign="center"
+                  className="edit"
+                  onClick={() =>
+                    editHandler(
+                      item.id,
+                      item.username,
+                      item.phoneNumber,
+                      item.gender
+                    )
+                  }
+                >
+                  <Icon name="edit" />
+                </Table.Cell>
+              </Table.Row>
             ))
           )
           }
