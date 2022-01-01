@@ -1,6 +1,6 @@
 import { Table,Icon} from 'semantic-ui-react';
-import { useFetch,deleteHandler } from '../../utils/functions';
-const Contacts = ({editHandler}) => {
+import { useFetch } from '../../utils/functions';
+const Contacts = () => {
   const { contactList, isLoading } = useFetch();
   return (
     <div>
@@ -39,21 +39,14 @@ const Contacts = ({editHandler}) => {
                 <Table.Cell
                   textAlign="center"
                   className="delete"
-                  onClick={() => deleteHandler(item.id)}
+                  onClick={null}
                 >
                   <Icon name="delete" />
                 </Table.Cell>
                 <Table.Cell
                   textAlign="center"
                   className="edit"
-                  onClick={() =>
-                    editHandler(
-                      item.id,
-                      item.username,
-                      item.phoneNumber,
-                      item.gender
-                    )
-                  }
+                  onClick={null }
                 >
                   <Icon name="edit" />
                 </Table.Cell>
@@ -67,3 +60,5 @@ const Contacts = ({editHandler}) => {
   );
 };
 export default Contacts;
+
+
