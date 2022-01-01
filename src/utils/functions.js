@@ -21,6 +21,7 @@ export const useFetch=()=>{
       const userRef = ref(db, 'contact');
       onValue(query(userRef), snapshot => {
         const contacts=snapshot.val()
+        // send an array of the valuers in database
         // console.log(snapshot.val())
         const contactArray = [];
         for (let id in contacts) {
