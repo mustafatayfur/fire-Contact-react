@@ -1,4 +1,4 @@
-import firebase from "./firebase";
+
 import { useState,useEffect } from "react";
 import { getDatabase,ref,push,set, onValue,query, remove } from "firebase/database"
 export const addInfo=(info)=>{

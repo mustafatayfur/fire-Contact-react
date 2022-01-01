@@ -9,8 +9,7 @@ const FormComponent = ({info, setInfo, handleFormSubmit}) => {
       // const value = e.target.value
       const {name, value} = e.target
       setInfo({...info, [name]: value})
-      // console.log("name:", e.target)       
-
+      // console.log("name:", e.target)     
     }
     const handleOptionChange = (e, values) =>{
       const {name, value} = values
@@ -18,7 +17,6 @@ const FormComponent = ({info, setInfo, handleFormSubmit}) => {
       console.log("Dropdown:", e, values)       
        
     }
-
     return (
         <Grid textAlign="center" verticalAlign="middle">
          <Grid.Column style={{ width: 400 }}>
@@ -78,4 +76,4 @@ const FormComponent = ({info, setInfo, handleFormSubmit}) => {
     )
 }
 
-export default FormComponent
+export default FormComponent;
