@@ -1,9 +1,7 @@
-import { Table} from 'semantic-ui-react';
-import { useFetch } from '../../utils/functions';
-
-
-const Contacts = () => {
-  const {isLoading, contactList}=useFetch()
+import { Table,Icon} from 'semantic-ui-react';
+import { useFetch,deleteHandler } from '../../utils/functions';
+const Contacts = ({editHandler}) => {
+  const { contactList, isLoading } = useFetch();
   return (
     <div>
       <h2 className="contact-header">Contacts</h2>
@@ -23,25 +21,21 @@ const Contacts = () => {
             <Table.Cell colSpan={5} textAlign="center">
               <p>Loading...</p>
             </Table.Cell>
-          </Table.Row> ):
-              contactList?.length === 0?
-          (
+          </Table.Row> ) :
+          contactList?.length === 0 ? (
             <Table.Row>
-            <Table.Cell colSpan={5} textAlign="center">
-              <p className="nothing-found">There is no result</p>
-            </Table.Cell>
-          </Table.Row>
-          ): (
-              contactList?.map((item,index)=>{
-                
-              })
+              <Table.Cell colSpan={5} textAlign="center">
+                <p className="nothing-found">Nothing Found</p>
+              </Table.Cell>
+            </Table.Row>
+          ) :(
+            
+            ))
           )
-        }
+          }
         </Table.Body>
       </Table>
     </div>
   );
 };
 export default Contacts;
-
-
