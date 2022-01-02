@@ -2,24 +2,24 @@ import React from 'react'
 import { Grid,Form,Segment,Button} from 'semantic-ui-react';
 import { options } from '../../utils/constants';
 
-const FormComponent = ({info, setInfo, handleFormSubmit}) => {
+const FormComponent = ({info,setInfo,handleFormSubmit}) => {
 
-    const handleInputChange = (e)=>{
-      // const name = e.target.name
-      // const value = e.target.value
-      const {name, value} = e.target
-      setInfo({...info, [name]: value})
-      // console.log("name:", e.target)     
-    }
-    const handleOptionChange = (e, values) =>{
-      const {name, value} = values
-      setInfo({...info, [name]: value.toUpperCase()})
-      console.log("Dropdown:", e, values)       
-       
-    }
+  const handleInputChange=(e)=>{
+    // const name=e.target.name
+    // const value=e.target.value
+    const {name,value}=e.target
+    setInfo({...info,[name]:value})
+
+  }
+  const handleOptionChange=(e,values)=>{
+    const {name,value}=values
+    setInfo({...info,[name]:value.toUpperCase()})
+
+  }
+
     return (
         <Grid textAlign="center" verticalAlign="middle">
-         <Grid.Column style={{ width: 400 }}>
+         <Grid.Column style={{ width: 300 }}>
             <div className="ui piled segments">
             <div className="ui segment brand">
                 <a
@@ -28,13 +28,13 @@ const FormComponent = ({info, setInfo, handleFormSubmit}) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 >
-                <code>{'TayfurAcademy '}</code>
+                <code>{'<Clarusway/> '}</code>
                 </a>
                 <span className="design header">design</span>
             </div>
             </div>
             <h2 className="contact-header">Add Contact</h2>
-            <Form size="large" onSubmit={handleFormSubmit} >
+        <Form size="large" onSubmit={handleFormSubmit} >
           <Segment stacked>
             <Form.Input
               fluid
@@ -76,4 +76,4 @@ const FormComponent = ({info, setInfo, handleFormSubmit}) => {
     )
 }
 
-export default FormComponent;
+export default FormComponent

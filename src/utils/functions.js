@@ -1,7 +1,8 @@
-
+import firebase from "./firebase";
 import { useState,useEffect } from "react";
 import { getDatabase,ref,push,set, onValue,query, remove, child, update } from "firebase/database"
 import { successNote } from "./customTostify";
+
 export const addInfo=(info)=>{
     const db=getDatabase();
     const userRef=ref(db,"contact")
@@ -11,7 +12,7 @@ export const addInfo=(info)=>{
         phoneNumber:info.phoneNumber,
         gender:info.gender
     })
-    successNote("Successfully added")
+    successNote("Added successfully")
 }
 export const useFetch=()=>{
     const [contactList, setContactList] = useState();
