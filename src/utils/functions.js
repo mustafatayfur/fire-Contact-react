@@ -1,6 +1,6 @@
 
 import { useState,useEffect } from "react";
-import { getDatabase,ref,push,set, onValue,query, remove } from "firebase/database"
+import { getDatabase,ref,push,set, onValue,query, remove, child, update } from "firebase/database"
 export const addInfo=(info)=>{
     const db=getDatabase();
     const userRef=ref(db,"contact")
@@ -38,4 +38,12 @@ export const deleteInfo=(id)=>{
     const db = getDatabase();
       //const userRef = ref(db, 'contact');
       remove(ref(db, "contact/"+ id))
+}
+
+export const updateInfo = (info)=>{
+  const db = getDatabase()
+  const newUserKey=push(child(ref(db), "contact/")).key;
+  const updates = {};
+  updates["contact/"+newUserKey]=info;
+  return update(ref(db), updates)
 }
