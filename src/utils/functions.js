@@ -36,16 +36,41 @@ export const useFetch=()=>{
     return {isLoading,contactList};
 }
 
-export const deleteInfo=(id)=>{
-    const db = getDatabase();
-      //const userRef = ref(db, 'contact');
-      remove(ref(db, "contact/"+ id))
-}
-
-export const updateInfo = (info)=>{
-  const db = getDatabase()
-  const newUserKey=push(child(ref(db), "contact/")).key;
+//!-----------------------------------
+//* -----------DELETE DATA ------------
+//!-----------------------------------
+export const deleteInfo = id => {
+  // console.log(id);
+  const db = getDatabase();
+  remove(ref(db, 'contact/' + id));
+  successNote('Successfully deleted!');
+};
+//!--------------------------------
+//*---------UPDATE DATA -----------
+//!--------------------------------
+export const updateInfo = (id, username, phoneNumber, gender) => {
+  const db = getDatabase();
+  const infoData = {
+    username: username,
+    phoneNumber: phoneNumber,
+    gender: gender
+  };
   const updates = {};
-  updates["contact/"+newUserKey]=info;
-  return update(ref(db), updates)
-}
+  updates['contact/' + id] = infoData;
+  update(ref(db), updates);
+  successNote('Updated');
+};
+
+// export const deleteInfo=(id)=>{
+//     const db = getDatabase();
+//       //const userRef = ref(db, 'contact');
+//       remove(ref(db, "contact/"+ id))
+// }
+
+// export const updateInfo = (info)=>{
+//   const db = getDatabase()
+//   const newUserKey=push(child(ref(db), "contact/")).key;
+//   const updates = {};
+//   updates["contact/"+newUserKey]=info;
+//   return update(ref(db), updates)
+// }
